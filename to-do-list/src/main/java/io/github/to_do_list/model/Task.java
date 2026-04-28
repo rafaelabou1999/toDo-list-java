@@ -30,4 +30,10 @@ public class Task {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public Task(Long id, String title, String description, boolean completed) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.isCompleted = isCompleted();
+    }
 }
