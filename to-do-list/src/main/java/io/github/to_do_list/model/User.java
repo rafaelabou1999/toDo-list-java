@@ -24,5 +24,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Task> allTasks;
-    private int countTasks;
+
+    public User(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
