@@ -4,8 +4,10 @@ import io.github.to_do_list.dto.UserCreateDTO;
 import io.github.to_do_list.model.Task;
 import io.github.to_do_list.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+@Service
 public class TaskService {
     @Autowired
     private TaskRepository repository;

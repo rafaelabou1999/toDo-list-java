@@ -23,7 +23,7 @@ public class Task {
 
     private String description;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name="is_completed")
     private boolean isCompleted;
 
     @ManyToOne
