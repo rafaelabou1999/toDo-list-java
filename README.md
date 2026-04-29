@@ -21,13 +21,17 @@ This project is a basic implementation of a To-Do List system with CRUD operatio
 
 | Method | Endpoint    | Description     |
 | ------ | ----------- | --------------- |
-| GET    | /users      | Get tasks  |
+| GET    | /users/{id}      | Get user by id |
+| GET    | /users     | Get users |
+| POST   | /users      | Create user  |
+
 
 
 ### ✅ Tasks
 
 | Method | Endpoint   | Description     |
 | ------ | ---------- | --------------- |
+| GET    | /tasks/{id}  | Get task by id  |
 | POST    | /tasks      | Create a new task   |
 
 
