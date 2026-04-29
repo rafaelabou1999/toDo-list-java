@@ -1,5 +1,6 @@
 package io.github.to_do_list.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class User {
     private String name;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Task> allTasks;
 
     public User(Long id, String name) {

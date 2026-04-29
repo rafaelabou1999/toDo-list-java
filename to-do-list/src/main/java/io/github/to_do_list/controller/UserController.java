@@ -20,11 +20,6 @@ public class UserController {
         service.createUser(dto);
     }
 
-    @GetMapping("/{id}")
-    public User findById(@PathVariable Long id){
-       return service.findById(id);
-    }
-
     @GetMapping
     public List<User> displayUsers(){
         return service.displayUsers();
