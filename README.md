@@ -61,7 +61,7 @@ POST /users/1/tasks
 * `model` → Entity classes
 * `dto` → Data transfer objects
 
-▶️ How to Run
+## ▶️ How to Run
 ```http
 git clone https://github.com/rafaelabou1999/toDo-list-java.git
 cd toDo-list-java/to-do-list
