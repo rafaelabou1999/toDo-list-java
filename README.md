@@ -1,87 +1,81 @@
-# To-Do List API (Java)
+# To-Do List API
 
-Simple REST API for managing tasks and users, built with Java and Spring Boot.
+A simple REST API built with Java and Spring Boot to manage users and tasks.
 
-## 📌 Overview
-
-This project is a basic implementation of a To-Do List system with CRUD operations for tasks and users. It was created to practice core backend concepts such as REST APIs, HTTP methods, DTOs, and database integration.
+---
 
 ## 🚀 Technologies
 
-* Java
-* Spring Boot
-* Spring Data JPA
-* Hibernate
-* Maven
-* MySQL 
+- Java
+- Spring Boot
+- Spring Data JPA
+- Hibernate
+- Maven
+- MySQL
 
-## 📂 Endpoints
+---
+
+## 📌 Endpoints
 
 ### 👤 Users
 
-| Method | Endpoint    | Description     |
-| ------ | ----------- | --------------- |
-| GET    | /users/{id}      | Get user by id |
-| GET    | /users     | Get users |
-| POST   | /users      | Create user  |
+| Method | Endpoint | Description |
+|--------|----------|------------|
+| POST   | `/users` | Create a new user |
+| GET    | `/users` | List all users |
+
+---
+
+### 📝 Tasks (by User)
+
+| Method | Endpoint | Description |
+|--------|----------|------------|
+| POST   | `/users/{userId}/tasks` | Create a task for a user |
+| GET    | `/users/{userId}/tasks` | Get all tasks from a user |
+
+---
+
+## 📥 Example Requests
+
+### Create User
+
+```http
+POST /users
+{
+  "name": "Rafaela"
+}
 
 
-
-### ✅ Tasks
-
-| Method | Endpoint   | Description     |
-| ------ | ---------- | --------------- |
-| GET    | /tasks/{id}  | Get task by id  |
-| POST    | /tasks      | Create a new task   |
-
-
-## 📦 Project Structure
-
+Create Task for User
+POST /users/1/tasks
+{
+  "title": "Study Java",
+  "description": "Practice Spring Boot",
+  "completed": false
+}
+```
+## 📂 Project Structure
 * `controller` → Handles HTTP requests
 * `service` → Business logic layer
 * `repository` → Data access layer (JPA)
 * `model` → Entity classes
 * `dto` → Data transfer objects
 
-## ⚙️ How to Run
-
-1. Clone the repository:
-
-```
-git clone https://github.com/your-username/your-repo.git
-```
-
-2. Navigate to the project folder:
-
-```
-cd your-repo
-```
-
-3. Run the application:
-
-```
+## ▶️ How to Run
+```http
+git clone https://github.com/rafaelabou1999/toDo-list-java.git
+cd toDo-list-java/to-do-list
 ./mvnw spring-boot:run
-```
+````
 
-The API will be available at:
-
-```
+## 🌐 Base URL
+```http
 http://localhost:8080
 ```
 
-## 🧪 Testing
-
-You can test the endpoints using tools like Postman or Insomnia.
-
 ## 🎯 Purpose
-
-This project was created for learning purposes, focusing on:
-
-* REST API design
-* Create and Read operations
-* Layered architecture (Controller, Service, Repository)
-* Integration with relational databases
-
-## 📄 License
-
-This project is open-source and available for study and practice.
+This project was created to practice backend development concepts such as:
+- REST APIs
+- DTO pattern
+- JPA relationships
+- Layered architecture (Controller → Service → Repository)
