@@ -21,8 +21,8 @@ A simple REST API built with Java and Spring Boot to manage users and tasks.
 
 | Method | Endpoint | Description |
 |--------|----------|------------|
-| POST   | `/users` | Create a new user |
 | GET    | `/users` | List all users |
+| POST   | `/users` | Create a new user |
 
 ---
 
@@ -30,8 +30,11 @@ A simple REST API built with Java and Spring Boot to manage users and tasks.
 
 | Method | Endpoint | Description |
 |--------|----------|------------|
-| POST   | `/users/{userId}/tasks` | Create a task for a user |
 | GET    | `/users/{userId}/tasks` | Get all tasks from a user |
+| GET    | `/users/tasks` | Get all tasks |
+| POST   | `/users/{userId}/tasks` | Create a task for a user 
+| PUT    | `/users/{userId}/tasks/{taskId}` | Update task completion |
+
 
 ---
 
