@@ -23,8 +23,11 @@ public class TaskService {
     @Autowired
     private UserService userService;
 
-    public List<Task> displayAllTasks() {
-        return repository.findAll();
+    public List<UserTaskDTO> displayAllTasks() {
+        return repository.findAll()
+                .stream()
+                .map(t -> new UserTaskDTO(t.getId(), t.getTitle(), t.getDescription(), t.isCompleted(), t.getUser().getId()))
+                .toList();
     }
 
     public UserTaskDTO addTasks(UserTaskDTO dto, Long userId){
@@ -35,8 +38,10 @@ public class TaskService {
         return new UserTaskDTO(saved.getId(), saved.getTitle(), saved.getDescription(), saved.isCompleted(), saved.getUser().getId());
     }
 
-    public List<Task> findByUserId(Long userId) {
-        return repository.findByUserId(userId);
+    public List<UserTaskDTO> findByUserId(Long userId) {
+        return repository.findByUserId(userId).stream()
+                .map(t -> new UserTaskDTO(t.getId(), t.getTitle(), t.getDescription(),t.isCompleted(), t.getUser().getId()))
+                .toList();
     }
 
     public UserUpdateDTO taskCompletion(UserUpdateDTO dto,  Long userId, Long id) {

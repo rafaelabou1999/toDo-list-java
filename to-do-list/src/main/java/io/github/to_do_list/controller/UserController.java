@@ -1,6 +1,7 @@
 package io.github.to_do_list.controller;
 
 import io.github.to_do_list.dto.UserCreateDTO;
+import io.github.to_do_list.dto.UserDisplayDTO;
 import io.github.to_do_list.dto.UserTaskDTO;
 import io.github.to_do_list.model.User;
 import io.github.to_do_list.service.UserService;
@@ -21,7 +22,7 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> displayUsers(){
+    public List<UserDisplayDTO> displayUsers(){
         return service.displayUsers();
     }
 

@@ -1,6 +1,8 @@
 package io.github.to_do_list.service;
 
 import io.github.to_do_list.dto.UserCreateDTO;
+import io.github.to_do_list.dto.UserDisplayDTO;
+import io.github.to_do_list.dto.UserHistoryDTO;
 import io.github.to_do_list.dto.UserTaskDTO;
 import io.github.to_do_list.model.User;
 import io.github.to_do_list.repository.UserRepository;
@@ -26,7 +28,10 @@ public class UserService {
     }
 
 
-    public List<User> displayUsers() {
-        return repository.findAll();
+    public List<UserDisplayDTO> displayUsers() {
+        return repository.findAll()
+                .stream()
+                .map(u -> new UserDisplayDTO(u.getId(),u.getName()))
+                .toList();
     }
 }

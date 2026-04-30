@@ -16,7 +16,7 @@ public class UserTaskController {
     private TaskService service;
 
     @GetMapping("/tasks")
-    public List<Task> displayAllTasks(){
+    public List<UserTaskDTO> displayAllTasks(){
         return service.displayAllTasks();
     }
 
@@ -26,7 +26,7 @@ public class UserTaskController {
     }
 
     @GetMapping("/{userId}/tasks")
-    public List<Task> findByUserId(@PathVariable("userId") Long userId){
+    public List<UserTaskDTO> findByUserId(@PathVariable("userId") Long userId){
         return service.findByUserId(userId);
     }
 
