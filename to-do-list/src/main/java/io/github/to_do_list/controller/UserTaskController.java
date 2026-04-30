@@ -30,7 +30,7 @@ public class UserTaskController {
         return service.findByUserId(userId);
     }
 
-    @PutMapping("/{userId}/tasks/{taskId}")
+    @PatchMapping("/{userId}/tasks/{taskId}")
     public UserUpdateDTO taskCompletion(@RequestBody UserUpdateDTO dto, @PathVariable Long userId, @PathVariable Long taskId){
         return service.taskCompletion(dto, userId, taskId);
     }
