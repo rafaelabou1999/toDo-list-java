@@ -26,9 +26,6 @@ public class Task {
 
     private String description;
 
-    @Column(nullable = false, name="is_completed")
-    private boolean isCompleted;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -39,12 +36,11 @@ public class Task {
     private LocalDate createdAt;
 
 
-    public Task(Long id, String title, String description, User user, boolean isCompleted, StatusTask status) {
+    public Task(Long id, String title, String description, User user, StatusTask status) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.user = user;
-        this.isCompleted = isCompleted;
         this.status = status;
         this.createdAt = LocalDate.now();
     }

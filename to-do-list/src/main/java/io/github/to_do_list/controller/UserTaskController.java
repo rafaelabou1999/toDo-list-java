@@ -33,16 +33,17 @@ public class UserTaskController {
         return service.findByUserId(userId);
     }
 
-    @PatchMapping("/{userId}/tasks/{taskId}")
-    @Transactional
-    public UserUpdateDTO taskCompletion(@RequestBody UserUpdateDTO dto, @PathVariable Long userId, @PathVariable Long taskId){
-        return service.taskCompletion(dto, userId, taskId);
-    }
 
     @GetMapping("/tasks/{status}")
     public List<UserTaskDTO> displayByStatus(@PathVariable("status") String status){
         return service.displayByStatus(
                 StatusTask.valueOf(status.toUpperCase())
         );
+    }
+
+    @PatchMapping("{userId}/tasks/{id}")
+    @Transactional
+    public UserUpdateDTO updateStatus(@PathVariable("userId") Long userId, @PathVariable("id") Long id, @RequestBody UserUpdateDTO dto){
+        return service.updateStatus(userId, id, dto.status());
     }
 }
