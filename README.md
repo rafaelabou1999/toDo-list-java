@@ -34,7 +34,6 @@ A simple REST API built with Java and Spring Boot to manage users and tasks.
 | GET    | `/users/tasks` | Get all tasks |
 | GET    | `/users/tasks/{status}` | Get all tasks by the status |
 | POST   | `/users/{userId}/tasks` | Create a task for a user 
-| PATCH    | `/users/{userId}/tasks/{taskId}` | Update task completion |
 | PATCH    | `/users/{userId}/tasks/{id}` | Update task status |
 
 
