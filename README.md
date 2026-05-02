@@ -49,7 +49,7 @@ POST /users
     "name": "Rafaela"
   }
 
-GET /users/{id}/tasks
+GET /users/{userId}/tasks
 	{
 		"id": 1,
 		"title": "Do the dishes",
