@@ -5,6 +5,7 @@ import io.github.to_do_list.dto.UserDisplayDTO;
 import io.github.to_do_list.dto.UserTaskDTO;
 import io.github.to_do_list.model.User;
 import io.github.to_do_list.service.UserService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ public class UserController {
     private UserService service;
 
     @PostMapping
+    @Transactional
     public void createUser(@RequestBody UserCreateDTO dto){
         service.createUser(dto);
     }

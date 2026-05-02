@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -31,11 +33,32 @@ public class Task {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Enumerated(EnumType.STRING)
+    private StatusTask status;
 
-    public Task(Long id, String title, String description, boolean completed) {
+    private LocalDate createdAt;
+
+
+    public Task(Long id, String title, String description, User user, boolean isCompleted, StatusTask status) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.isCompleted = isCompleted();
+        this.user = user;
+        this.isCompleted = isCompleted;
+        this.status = status;
+        this.createdAt = LocalDate.now();
     }
+
+
 }
+
+/*
+    {
+        "title": "Do the dishes",
+        "description": "I should do the dishes",
+        "isCompleted": false,
+        "status": "PENDING",
+
+    }
+*
+ */
