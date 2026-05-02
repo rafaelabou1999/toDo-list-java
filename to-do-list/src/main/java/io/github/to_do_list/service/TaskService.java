@@ -43,15 +43,13 @@ public class TaskService {
     }
 
 
-    public List<UserTaskDTO> displayByStatus(StatusTask status){
+    public List<UserTaskDTO> displayByStatus(StatusTask status, Long userId){
+       User userFound = userService.findById(userId);
+       List<Task> tasksFound = userFound.getAllTasks().stream().filter(t -> t.getStatus() == status).toList();
 
-       List<UserTaskDTO> tasksWithStatus = repository.findByStatus(status).stream().map(UserTaskDTO::new).toList();
+       List<UserTaskDTO> tasksToDto = tasksFound.stream().map(UserTaskDTO::new).toList();
 
-       if(tasksWithStatus.isEmpty()){
-           throw new RuntimeException("No tasks");
-       }
-
-       return tasksWithStatus;
+       return tasksToDto;
 
     }
 

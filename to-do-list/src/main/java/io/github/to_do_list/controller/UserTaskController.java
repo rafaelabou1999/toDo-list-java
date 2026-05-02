@@ -34,10 +34,10 @@ public class UserTaskController {
     }
 
 
-    @GetMapping("/tasks/{status}")
-    public List<UserTaskDTO> displayByStatus(@PathVariable("status") String status){
+    @GetMapping("{userId}/tasks/{status}")
+    public List<UserTaskDTO> displayByStatus(@PathVariable("status") String status, @PathVariable("userId") Long userId){
         return service.displayByStatus(
-                StatusTask.valueOf(status.toUpperCase())
+                StatusTask.valueOf(status.toUpperCase()), userId
         );
     }
 
