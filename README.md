@@ -32,8 +32,9 @@ A simple REST API built with Java and Spring Boot to manage users and tasks.
 |--------|----------|------------|
 | GET    | `/users/{userId}/tasks` | Get all tasks from a user |
 | GET    | `/users/tasks` | Get all tasks |
+| GET    | `/users/tasks/{status}` | Get all tasks by the status |
 | POST   | `/users/{userId}/tasks` | Create a task for a user 
-| PATCH    | `/users/{userId}/tasks/{taskId}` | Update task completion |
+| PATCH    | `/users/{userId}/tasks/{id}` | Update task status |
 
 
 ---
@@ -44,18 +45,19 @@ A simple REST API built with Java and Spring Boot to manage users and tasks.
 
 ```http
 POST /users
-{
-  "name": "Rafaela"
-}
+  {
+    "name": "Rafaela"
+  }
 
-
-Create Task for User
-POST /users/1/tasks
-{
-  "title": "Study Java",
-  "description": "Practice Spring Boot",
-  "completed": false
-}
+GET /users/{id}/tasks
+	{
+		"id": 1,
+		"title": "Do the dishes",
+		"description": "I should do the dishes",
+		"userId": 2,
+		"status": "DONE",
+		"createdAt": "2026-05-02"
+	}
 ```
 ## 📂 Project Structure
 * `controller` → Handles HTTP requests
