@@ -45,9 +45,9 @@ A simple REST API built with Java and Spring Boot to manage users and tasks.
 
 ```http
 POST /users
-	  {
-	    "name": "Rafaela"
-	  }
+     {
+        "name": "Rafaela"
+     }
 
 GET /users/{userId}/tasks
 	{
