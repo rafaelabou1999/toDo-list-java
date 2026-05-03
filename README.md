@@ -45,9 +45,9 @@ A simple REST API built with Java and Spring Boot to manage users and tasks.
 
 ```http
 POST /users
-  {
-    "name": "Rafaela"
-  }
+	  {
+	    "name": "Rafaela"
+	  }
 
 GET /users/{userId}/tasks
 	{
@@ -67,14 +67,14 @@ GET /users/{userId}/tasks
 * `dto` → Data transfer objects
 
 ## ▶️ How to Run
-```http
+```
 git clone https://github.com/rafaelabou1999/toDo-list-java.git
 cd toDo-list-java/to-do-list
 ./mvnw spring-boot:run
 ````
 
 ## 🌐 Base URL
-```http
+```
 http://localhost:8080
 ```
 
