@@ -4,6 +4,4 @@ public enum StatusTask {
     PENDING,
     DONE,
     CANCELED;
-
-
 }

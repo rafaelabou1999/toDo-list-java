@@ -7,6 +7,8 @@ import io.github.to_do_list.model.User;
 import io.github.to_do_list.service.UserService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,13 +21,15 @@ public class UserController {
 
     @PostMapping
     @Transactional
-    public void createUser(@RequestBody UserCreateDTO dto){
-        service.createUser(dto);
+    public ResponseEntity<UserCreateDTO> createUser(@RequestBody UserCreateDTO dto){
+        UserCreateDTO dtoCreate = service.createUser(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(dtoCreate);
     }
 
     @GetMapping
-    public List<UserDisplayDTO> displayUsers(){
-        return service.displayUsers();
+    public ResponseEntity<List<UserDisplayDTO>> displayUsers(){
+        List<UserDisplayDTO> dtoDisplay = service.displayUsers();
+        return ResponseEntity.ok(dtoDisplay);
     }
 
 }
